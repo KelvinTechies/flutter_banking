@@ -1,5 +1,8 @@
+import 'package:banking/Pages/statistics.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:banking/model/models.dart';
+import 'package:banking/Pages/myCarosel.dart';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({super.key});
@@ -8,6 +11,22 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
+  PageController? _pageController;
+  int _currpage = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController =
+        PageController(initialPage: _currpage, viewportFraction: 0.2);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pageController?.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -30,9 +49,12 @@ class _DashboardState extends State<Dashboard> {
                   height: 20,
                 ),
                 ListTile(
-                  leading: Image.asset(
-                    "assets/images/bave-pictures-fl7bASYZgXo-unsplash-removebg-preview.png",
-                    width: 30,
+                  leading: CircleAvatar(
+                    child: Image.asset(
+                      "assets/images/bave-pictures-fl7bASYZgXo-unsplash-removebg-preview.png",
+                      width: 30,
+                    ),
+                    backgroundColor: Colors.brown,
                   ),
                   subtitle: Text(
                     "Lorem Ipsium un doh Tra",
@@ -67,7 +89,9 @@ class _DashboardState extends State<Dashboard> {
                 Spacer(),
                 Container(
                   width: 300,
-                  child: Row(
+                  child:
+                      //  CustomCarouselFB2()
+                      Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
@@ -106,12 +130,11 @@ class _DashboardState extends State<Dashboard> {
                                       decoration: BoxDecoration(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(13)),
-                                          color: const Color.fromARGB(
-                                              255, 174, 138, 180)),
+                                          color: Color.fromARGB(
+                                              255, 234, 203, 240)),
                                       child: Icon(
                                         Icons.send_and_archive_outlined,
-                                        color: const Color.fromARGB(
-                                            255, 186, 6, 218),
+                                        color: Color.fromARGB(255, 209, 2, 246),
                                       ),
                                     ),
                                   ],
@@ -130,12 +153,11 @@ class _DashboardState extends State<Dashboard> {
                                       decoration: BoxDecoration(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(13)),
-                                          color: const Color.fromARGB(
-                                              255, 174, 138, 180)),
+                                          color: Color.fromARGB(
+                                              255, 234, 203, 240)),
                                       child: Icon(
-                                        Icons.cases_outlined,
-                                        color: const Color.fromARGB(
-                                            255, 186, 6, 218),
+                                        Icons.send_and_archive_outlined,
+                                        color: Color.fromARGB(255, 209, 2, 246),
                                       ),
                                     ),
                                   ],
@@ -154,12 +176,11 @@ class _DashboardState extends State<Dashboard> {
                                       decoration: BoxDecoration(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(13)),
-                                          color: const Color.fromARGB(
-                                              255, 174, 138, 180)),
+                                          color: Color.fromARGB(
+                                              255, 234, 203, 240)),
                                       child: Icon(
-                                        Icons.shopping_cart_checkout_outlined,
-                                        color: const Color.fromARGB(
-                                            255, 186, 6, 218),
+                                        Icons.send_and_archive_outlined,
+                                        color: Color.fromARGB(255, 209, 2, 246),
                                       ),
                                     ),
                                   ],
@@ -178,12 +199,11 @@ class _DashboardState extends State<Dashboard> {
                                       decoration: BoxDecoration(
                                           borderRadius: BorderRadius.all(
                                               Radius.circular(13)),
-                                          color: const Color.fromARGB(
-                                              255, 174, 138, 180)),
+                                          color: Color.fromARGB(
+                                              255, 234, 203, 240)),
                                       child: Icon(
-                                        Icons.scanner,
-                                        color: const Color.fromARGB(
-                                            255, 186, 6, 218),
+                                        Icons.send_and_archive_outlined,
+                                        color: Color.fromARGB(255, 209, 2, 246),
                                       ),
                                     ),
                                   ],
@@ -319,10 +339,29 @@ class _DashboardState extends State<Dashboard> {
       bottomNavigationBar: Container(
         color: Colors.white,
         child: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          items: [
             BottomNavigationBarItem(
-                icon: IconButton(Icons.analytics), label: "Statistics"),
+                icon: IconButton(
+                  icon: Icon(
+                    Icons.home,
+                  ),
+                  onPressed: () {
+                    Null;
+                  },
+                ),
+                label: "Home"),
+            BottomNavigationBarItem(
+                icon: IconButton(
+                  icon: Icon(Icons.analytics),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => StatisticsPage(),
+                        ));
+                  },
+                ),
+                label: "Statistics"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.message), label: "Messages"),
           ],
@@ -330,4 +369,26 @@ class _DashboardState extends State<Dashboard> {
       ),
     );
   }
+}
+
+Widget CarouselView(int index) {
+  return CarouselCard(dataList[index]);
+}
+
+Widget CarouselCard(DataModel data) {
+  return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: [
+      Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(30),
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage(data.Img),
+          ),
+        ),
+      ),
+    ],
+  );
 }

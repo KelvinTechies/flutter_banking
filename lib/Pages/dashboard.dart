@@ -371,24 +371,24 @@ class _DashboardState extends State<Dashboard> {
   }
 }
 
-Widget CarouselView(int index) {
-  return CarouselCard(dataList[index]);
-}
+// Widget CarouselView(int index) {
+//   return CarouselCard(dataList[index]);
+// }
 
-Widget CarouselCard(DataModel data) {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.center,
-    children: [
-      Container(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(30),
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage(data.Img),
-          ),
-        ),
-      ),
-    ],
-  );
-}
+// Widget CarouselCard(DataModel data) {
+//   return Row(
+//     mainAxisAlignment: MainAxisAlignment.center,
+//     children: [
+//       Container(
+//         decoration: BoxDecoration(
+//           color: Colors.white,
+//           borderRadius: BorderRadius.circular(30),
+//           image: DecorationImage(
+//             fit: BoxFit.cover,
+//             image: AssetImage(data.Img),
+//           ),
+//         ),
+//       ),
+//     ],
+//   );
+// }

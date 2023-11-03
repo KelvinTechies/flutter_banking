@@ -88,26 +88,6 @@ class _StatisticsPageState extends State<StatisticsPage> {
                                                     fontSize: 34,
                                                     fontWeight:
                                                         FontWeight.w900)),
-                                            LineChart(
-                                              LineChartData(
-                                                  minX: 2,
-                                                  maxX: 4,
-                                                  minY: 2,
-                                                  maxY: 4,
-                                                  lineBarsData: [
-                                                    LineChartBarData(spots: [
-                                                      FlSpot(0, 1),
-                                                      FlSpot(2.6, 3),
-                                                      FlSpot(2, 10),
-                                                      FlSpot(3, 7),
-                                                      FlSpot(4, 12),
-                                                      FlSpot(5, 13),
-                                                      FlSpot(6, 17),
-                                                      FlSpot(7, 15),
-                                                      FlSpot(8, 20),
-                                                    ])
-                                                  ]),
-                                            ),
                                           ],
                                         ),
                                       ),

@@ -42,7 +42,9 @@ class _LoginPageState extends State<LoginPage> {
                         style: TextStyle(
                             fontWeight: FontWeight.w900,
                             fontSize: 40,
-                            color: Colors.purpleAccent),
+                            color: Color.fromARGB(255, 97, 40, 130)
+                            // color: Colors.purpleAccent
+                            ),
                       ),
                       SizedBox(
                         height: 20,

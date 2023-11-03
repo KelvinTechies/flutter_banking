@@ -29,7 +29,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       style: TextStyle(
                         fontWeight: FontWeight.w900,
                         fontSize: 40,
-                        color: Colors.purpleAccent,
+                        color: Color.fromARGB(255, 97, 40, 130),
                       ),
                     ),
                     SizedBox(
@@ -81,6 +81,18 @@ class _RegisterPageState extends State<RegisterPage> {
                               borderRadius: BorderRadius.circular(10)),
                           prefixIcon: Icon(Icons.lock),
                           hintText: "Enter Security Key"),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    TextField(
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecoration(
+                          border: OutlineInputBorder(
+                              borderSide: BorderSide(width: 10),
+                              borderRadius: BorderRadius.circular(10)),
+                          prefixIcon: Icon(Icons.lock),
+                          hintText: "Re-Enter Security Key"),
                     ),
                     SizedBox(
                       height: 15,

@@ -24,17 +24,19 @@ class _VerifyPageState extends State<VerifyPage> {
                 /* SizedBox(
                   height: 45,
                 ), */
-                Stack(
-                  children: [
-                    Container(
-                        color: Color.fromARGB(255, 97, 40, 130),
-                        height: 400,
-                        width: MediaQuery.of(context).size.width,
-                        child: Row(
+                /* Stack(
+                  children: [ */
+                Container(
+                    color: Color.fromARGB(255, 97, 40, 130),
+                    height: 440,
+                    width: MediaQuery.of(context).size.width,
+                    child: Column(
+                      children: [
+                        Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             SizedBox(
-                              height: 15,
+                              height: 200,
                             ),
                             CircleAvatar(
                                 child: IconButton(
@@ -58,19 +60,29 @@ class _VerifyPageState extends State<VerifyPage> {
                               height: 20,
                             ),
                           ],
-                        )),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Container(
-                      child: Center(
-                        child: Image.asset(
-                            height: 300,
-                            "assets/images/bave-pictures-fl7bASYZgXo-unsplash-removebg-preview.png"),
-                      ),
-                    ),
-                  ],
-                ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          width: 200,
+                          height: 220,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  fit: BoxFit.cover,
+                                  image: AssetImage(
+                                      "assets/images/bave-pictures-fl7bASYZgXo-unsplash-removebg-preview.png"))),
+                          /*  child: Center(
+                            child: Image.asset(
+                                height: 200,
+                                "assets/images/bave-pictures-fl7bASYZgXo-unsplash-removebg-preview.png"),
+                          ), */
+                        ),
+                      ],
+                    )),
+
+                /*  ],
+                ), */
                 SizedBox(
                   height: 20,
                 ),
